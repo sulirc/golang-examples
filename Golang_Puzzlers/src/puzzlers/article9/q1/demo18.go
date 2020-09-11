@@ -1,9 +1,20 @@
 package main
 
+import "fmt"
+
 func main() {
+	var deepStringList = [][]string{[]string{"Hello"}}
+	dsl := deepStringList[:]
+	dsl = append(dsl, []string{"World"})
+	// var deepStringList = make([][]string, 2)
+	// deepStringList = append(deepStringList, []string{"Hello"})
+	// deepStringList = append(deepStringList, []string{"World"})
+	fmt.Printf("deepStringList: %T & %v\n", deepStringList, deepStringList)
+	fmt.Printf("dsl: %T & %v", dsl, dsl)
+
 	// 示例1。
-	//var badMap1 = map[[]int]int{} // 这里会引发编译错误。
-	//_ = badMap1
+	// var badMap1 = map[[]int]int{} // 这里会引发编译错误。
+	// _ = badMap1
 
 	// 示例2。
 	//var badMap2 = map[interface{}]int{
@@ -18,11 +29,11 @@ func main() {
 	//_ = badMap3
 
 	// 示例4。
-	//type BadKey1 struct {
-	//	slice []string
-	//}
-	//var badMap4 map[BadKey1]int // 这里会引发编译错误。
-	//_ = badMap4
+	// type BadKey1 struct {
+	// 	slice []string
+	// }
+	// var badMap4 map[BadKey1]int // 这里会引发编译错误。
+	// _ = badMap4
 
 	// 示例5。
 	//var badMap5 map[[1][2][3][]string]int // 这里会引发编译错误。

@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 	ch1 := make(chan int, 2)
@@ -9,6 +11,7 @@ func main() {
 		for i := 0; i < 10; i++ {
 			fmt.Printf("Sender: sending element %v...\n", i)
 			ch1 <- i
+			// time.Sleep(1 * time.Millisecond)
 		}
 		fmt.Println("Sender: close the channel...")
 		close(ch1)

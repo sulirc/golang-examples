@@ -20,7 +20,9 @@ func example1() {
 		make(chan int, 1),
 	}
 	// 随机选择一个通道，并向它发送元素值。
+	rand.Seed(time.Now().UnixNano())
 	index := rand.Intn(3)
+	// index := 1
 	fmt.Printf("The index: %d\n", index)
 	intChannels[index] <- index
 	// 哪一个通道中有可取的元素值，哪个对应的分支就会被执行。
@@ -43,6 +45,7 @@ func example2() {
 	time.AfterFunc(time.Second, func() {
 		close(intChan)
 	})
+	// intChan <- 100
 	select {
 	case _, ok := <-intChan:
 		if !ok {
