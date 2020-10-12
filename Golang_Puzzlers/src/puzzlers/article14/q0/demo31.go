@@ -6,6 +6,7 @@ type Pet interface {
 	SetName(name string)
 	Name() string
 	Category() string
+	// Walk() bool
 }
 
 type Dog struct {

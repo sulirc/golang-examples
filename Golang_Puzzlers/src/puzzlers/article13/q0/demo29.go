@@ -32,6 +32,10 @@ func (a Animal) String() string {
 		a.scientificName, a.AnimalCategory)
 }
 
+func (a Animal) printSName() {
+	fmt.Println("> This is just an animal")
+}
+
 // 示例3。
 type Cat struct {
 	name string
@@ -42,6 +46,16 @@ type Cat struct {
 func (cat Cat) String() string {
 	return fmt.Sprintf("%s (category: %s, name: %q)",
 		cat.scientificName, cat.Animal.AnimalCategory, cat.name)
+}
+
+func (cat Cat) printSName() {
+	cat.Animal.printSName()
+	fmt.Println("cat name is", cat.name)
+}
+
+func (cat Cat) setName() {
+	cat.name = "King of the pig"
+	fmt.Printf(">>setName: The cat: %s\n", cat)
 }
 
 func main() {
@@ -61,5 +75,8 @@ func main() {
 		name:   "little pig",
 		Animal: animal,
 	}
-	fmt.Printf("The cat: %s\n", cat)
+	fmt.Printf(">1 The cat: %s\n", cat)
+	// cat.printSName()
+	cat.setName()
+	fmt.Printf(">2 The cat: %s\n", cat)
 }

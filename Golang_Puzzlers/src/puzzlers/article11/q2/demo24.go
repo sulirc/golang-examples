@@ -53,5 +53,10 @@ func example2() {
 			break
 		}
 		fmt.Println("The candidate case is selected.")
+	case <-time.After(time.Second * 2):
+		fmt.Println("Timeout")
+		break
 	}
+
+	fmt.Println("Am I block?")
 }

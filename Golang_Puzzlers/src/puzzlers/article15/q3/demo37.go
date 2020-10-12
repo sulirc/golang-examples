@@ -25,6 +25,8 @@ func main() {
 
 	namePtr := dogPtr + unsafe.Offsetof(dogP.name)
 	nameP := (*string)(unsafe.Pointer(namePtr))
+	fmt.Printf("nameP address: %p\n", nameP)
+	fmt.Printf("&(dogP.name) address: %p\n", &(dogP.name))
 	fmt.Printf("nameP == &(dogP.name)? %v\n",
 		nameP == &(dogP.name))
 	fmt.Printf("The name of dog is %q.\n", *nameP)

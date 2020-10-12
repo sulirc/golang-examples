@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Dog struct {
 	name string
 }
@@ -24,4 +26,6 @@ func main() {
 	map[string]int{"the": 0, "word": 0, "counter": 0}["word"]++
 	map1 := map[string]int{"the": 0, "word": 0, "counter": 0}
 	map1["word"]++
+
+	fmt.Println(map1)
 }
